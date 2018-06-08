@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 'use strict';
 
 const express = require("express");
@@ -32,3 +33,35 @@ restService.post("/echo", function (req, res) {
 restService.listen(process.env.PORT || 8000, function () {
     console.log("Server up and listening");
 });
+=======
+'use strict';
+
+const express = require("express");
+const bodyParser = require("body-parser");
+
+const restService = express();
+
+restService.use(
+    bodyParser.urlencoded({
+        extended: true
+    })
+);
+
+
+restService.use(bodyParser.json());
+
+restService.post("/echo", function (req, res) {
+    var speech = req.body.result && req.body.result.parameters && req.body.result.parameters.echoText ? req.body.result.parameters.echoText : "Something went wrong boss.";
+
+    return res.json({
+        speech: speech,
+        displayText: speech,
+        source: "basic-nodejs"
+    });
+
+});
+
+restService.listen(process.env.PORT || 8000, function () {
+    console.log("Server up and listening");
+});
+>>>>>>> d595e155ab9c0ebf25024a89414cf603d744d02f
