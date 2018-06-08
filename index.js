@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 'use strict';
 
 const express = require("express");
@@ -64,4 +63,3 @@ restService.post("/echo", function (req, res) {
 restService.listen(process.env.PORT || 8000, function () {
     console.log("Server up and listening");
 });
->>>>>>> d595e155ab9c0ebf25024a89414cf603d744d02f
